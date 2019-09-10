@@ -37,3 +37,12 @@ Check if a linked list has a cycle in it
 
 lists.h<br>
 Contains prototypes for functions used in 10-check_cycle
+
+100-write.py<br>
+Print a quote to stderr using write
+
+101-compile<br>
+Compile a Python script file
+
+102-magic_calculation.py<br>
+Return 98 + a**b
