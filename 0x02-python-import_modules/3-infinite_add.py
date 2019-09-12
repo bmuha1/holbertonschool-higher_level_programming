@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from sys import argv
 
+
 def main():
     sum = 0
     for i in range(1, len(argv)):
