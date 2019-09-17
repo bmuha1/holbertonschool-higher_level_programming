@@ -12,44 +12,52 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *a = *head;
 	listint_t *b = NULL;
-	int nodes = 0, i;
-
-	(void) b;
 
 	if (*head == NULL)
 		return (1);
 
-	while (a != NULL)
+	b = malloc(sizeof(listint_t));
+	if (!b)
+		return (1);
+
+	while (a)
 	{
+		add_nodeint_end(&b, a->n);
 		a = a->next;
-		nodes++;
 	}
+	reverse_list(&b);
 
-	for (i = 0; i < nodes / 2; i++)
+	a = *head;
+	while (b->next)
 	{
-		if (get_value_at(*head, i) !=
-		    get_value_at(*head, nodes - i - 1))
+		if (a->n != b->n)
 			return (0);
-
+		a = a->next;
+		b = b->next;
 	}
 
 	return (1);
 }
 
 /**
- * get_value_at - Get the value of a node at a given index
- * @h: The list
- * @index: The index
+ * reverse_list - Reverse a linked list
+ * @head: The list
  *
- * Return: The value at the index
+ * Return: Pointer to the new head
  */
-int get_value_at(listint_t *h, int index)
+listint_t *reverse_list(listint_t **head)
 {
-	while (index)
+	listint_t *prev = NULL;
+	listint_t *next = NULL;
+
+	while (*head)
 	{
-		h = h->next;
-		index--;
+		next = (*head)->next;
+		(*head)->next = prev;
+		prev = *head;
+		*head = next;
 	}
 
-	return (h->n);
+	*head = prev;
+	return (*head);
 }
