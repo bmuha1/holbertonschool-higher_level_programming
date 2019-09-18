@@ -12,6 +12,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *a = *head;
 	listint_t *b = NULL;
+	int i, nodes = 0;
 
 	if (*head == NULL)
 		return (1);
@@ -24,10 +25,11 @@ int is_palindrome(listint_t **head)
 	{
 		add_nodeint(&b, a->n);
 		a = a->next;
+		nodes++;
 	}
 
 	a = *head;
-	while (b->next)
+	for (i = 0; i < nodes / 2; i++)
 	{
 		if (a->n != b->n)
 			return (0);
