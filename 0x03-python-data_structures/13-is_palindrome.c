@@ -22,10 +22,9 @@ int is_palindrome(listint_t **head)
 
 	while (a)
 	{
-		add_nodeint_end(&b, a->n);
+		add_nodeint(&b, a->n);
 		a = a->next;
 	}
-	reverse_list(&b);
 
 	a = *head;
 	while (b->next)
@@ -40,24 +39,27 @@ int is_palindrome(listint_t **head)
 }
 
 /**
- * reverse_list - Reverse a linked list
+ * add_nodeint - Add a new node at the beginning of a listint_t list
  * @head: The list
+ * @n: The integer
  *
- * Return: Pointer to the new head
+ * Return: The address of the new element, or NULL if it failed
  */
-listint_t *reverse_list(listint_t **head)
+listint_t *add_nodeint(listint_t **head, const int n)
 {
-	listint_t *prev = NULL;
-	listint_t *next = NULL;
+	listint_t *new;
 
-	while (*head)
-	{
-		next = (*head)->next;
-		(*head)->next = prev;
-		prev = *head;
-		*head = next;
-	}
+	if (!head)
+		return (NULL);
 
-	*head = prev;
-	return (*head);
+	new = malloc(sizeof(listint_t));
+	if (!new)
+		return (NULL);
+
+	new->n = n;
+	new->next = *head;
+
+	*head = new;
+
+	return (new);
 }
