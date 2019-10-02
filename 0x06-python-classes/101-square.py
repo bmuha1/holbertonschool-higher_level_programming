@@ -19,10 +19,8 @@ class Square:
             string += ('\n' * self.__position[1])
             for i in range(self.__size):
                 string += (' ' * self.__position[0])
-                string += ('#' * self.__size)
-                if i + 1 < self.__size:
-                    string += '\n'
-        return string
+                string += ('#' * self.__size + '\n')
+        return string[:-1]
 
     @property
     def size(self):
