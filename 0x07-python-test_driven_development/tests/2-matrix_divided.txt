@@ -31,6 +31,11 @@ Now use it:
         ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
+    >>> matrix_divided()
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
     Test int instead of matrix
     >>> matrix_divided(5, 2)
     Traceback (most recent call last):
@@ -64,3 +69,11 @@ Now use it:
     Traceback (most recent call last):
         ...
     ZeroDivisionError: division by zero
+
+    Test infinite number
+    >>> matrix_divided([[1, 2], [3, 4]], float('inf'))
+    [[0.0, 0.0], [0.0, 0.0]]
+
+    Test nan
+    >>> matrix_divided([[0]], float('nan'))
+    [[nan]]

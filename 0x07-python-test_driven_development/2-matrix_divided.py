@@ -2,7 +2,7 @@
 """
 This is the "matrix divided" module.
 
-The matrix divided  module supplies one function, matrix_divided().
+The matrix divided module supplies one function, matrix_divided().
 """
 
 
