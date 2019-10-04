@@ -71,8 +71,16 @@ Now use it:
         ...
     TypeError: each row of m_b must be of the same size
 
-    Test mmatrices that can't be multiplied
+    Test matrices that can't be multiplied
     >>> matrix_mul([[1, 2], [3, 4]], [[1, 2, 3], [4, 5, 6], [7, 8, 9]])
     Traceback (most recent call last):
         ...
     ValueError: m_a and m_b can't be multiplied
+
+    Test infinity
+    >>> matrix_mul([[float('inf')]], [[float('inf')]])
+    [[inf]]
+
+    Test nan
+    >>> matrix_mul([[float('nan')]], [[float('nan')]])
+    [[nan]]
