@@ -32,8 +32,15 @@ Now use it:
     A string of all spaces will print nothing
     >>> text_indentation("   ")
 
+    Test leading spaces
     >>> text_indentation("     Leading spaces")
     Leading spaces
 
+    Test following spaces
     >>> text_indentation("Following spaces      ")
     Following spaces      
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
