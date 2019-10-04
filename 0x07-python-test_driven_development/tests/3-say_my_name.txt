@@ -31,3 +31,9 @@ Now use it:
     Test with empty strings
     >>> say_my_name("", "")
     My name is  
+
+    Test with none
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
