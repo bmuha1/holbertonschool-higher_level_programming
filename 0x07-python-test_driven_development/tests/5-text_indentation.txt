@@ -31,3 +31,9 @@ Now use it:
 
     A string of all spaces will print nothing
     >>> text_indentation("   ")
+
+    >>> text_indentation("     Leading spaces")
+    Leading spaces
+
+    >>> text_indentation("Following spaces      ")
+    Following spaces      
