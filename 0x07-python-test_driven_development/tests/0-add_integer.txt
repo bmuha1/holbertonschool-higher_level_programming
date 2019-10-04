@@ -36,6 +36,11 @@ Now use it:
         ...
     TypeError: a must be an integer
 
+    >>> add_integer()
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
     Test for a list
     >>> add_integer([1, 2, 3])
     Traceback (most recent call last):
@@ -47,3 +52,15 @@ Now use it:
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
+
+    Test infinite number
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+    Test nan
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
