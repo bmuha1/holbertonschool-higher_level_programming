@@ -77,3 +77,11 @@ Now use it:
     Traceback (most recent call last):
         ...
     ValueError: m_a and m_b can't be multiplied
+
+    Test infinity
+    >>> print(lazy_matrix_mul([[float('inf')]], [[float('inf')]]))
+    [[ inf]]
+
+    Test nan
+    >>> print(lazy_matrix_mul([[float('nan')]], [[float('nan')]]))
+    [[ nan]]
