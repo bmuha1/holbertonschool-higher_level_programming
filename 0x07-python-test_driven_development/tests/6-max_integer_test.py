@@ -20,6 +20,9 @@ class TestMaxInteger(unittest.TestCase):
         """Test other compatible data types."""
         self.assertEqual(max_integer("string"), 't')
         self.assertEqual(max_integer((1, 2, 3, 4)), 4)
+        self.assertEqual(max_integer([1, 2, 3, float('inf')]), float('inf'))
+        self.assertEqual(max_integer([1, 2, 3, float('nan')]), 3)
+        self.assertEqual(max_integer(), None)
 
 if __name__ == '__main__':
     unittest.main()
