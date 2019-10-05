@@ -13,6 +13,8 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([1, 3, 4, 2]), 4)
         self.assertEqual(max_integer([-2, -6, -8, -4]), -2)
         self.assertEqual(max_integer([10, -20, 30, -40]), 30)
+        self.assertEqual(max_integer([50]), 50)
+        self.assertEqual(max_integer([0, -5, -10]), 0)
 
     def test_type(self):
         """Test other compatible data types."""
