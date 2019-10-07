@@ -16,7 +16,10 @@ class Rectangle:
 
     def __str__(self):
         """Print the rectangle."""
-        string = ('#' * self.__width + '\n') * self.__height
+        string = ''
+        if self.__width == 0 or self.__height == 0:
+            return string
+        string += ('#' * self.__width + '\n') * self.__height
         return string[:-1]
 
     def __repr__(self):
