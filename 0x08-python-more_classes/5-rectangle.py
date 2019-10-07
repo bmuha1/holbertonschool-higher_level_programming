@@ -6,10 +6,19 @@ class Rectangle:
         self.__width = width
         self.__height = height
 
+    def __del__(self):
+        """Delete a rectangle."""
+        print('Bye rectangle...')
+
     def __str__(self):
         """Print the rectangle."""
         string = ('#' * self.__width + '\n') * self.__height
         return string[:-1]
+
+    def __repr__(self):
+        """Return a string representation of the rectangle."""
+        return ('Rectangle(' + str(self.__width) + ', ' +
+                str(self.__height) + ')')
 
     @property
     def width(self):

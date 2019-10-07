@@ -6,11 +6,6 @@ class Rectangle:
         self.__width = width
         self.__height = height
 
-    @property
-    def width(self):
-        """Get the width."""
-        return self.__width
-
     def __str__(self):
         """Print the rectangle."""
         string = ('#' * self.__width + '\n') * self.__height
@@ -20,6 +15,11 @@ class Rectangle:
         """Return a string representation of the rectangle."""
         return ('Rectangle(' + str(self.__width) + ', ' +
                 str(self.__height) + ')')
+
+    @property
+    def width(self):
+        """Get the width."""
+        return self.__width
 
     @width.setter
     def width(self, value):
