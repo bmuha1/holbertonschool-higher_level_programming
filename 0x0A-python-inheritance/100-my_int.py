@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+This is the MyInt module.
+
+The MyInt module defines the MyInt class.
+"""
+
+
 class MyInt(int):
     """Represents a MyInt."""
     pass
