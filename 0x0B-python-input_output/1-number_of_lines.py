@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-This is the "read file" module.
+This is the "number of lines" module.
 
-The read file module defines one function, read_file().
+The number of lines module defines one function, number_of_lines().
 """
 
 def number_of_lines(filename=""):
