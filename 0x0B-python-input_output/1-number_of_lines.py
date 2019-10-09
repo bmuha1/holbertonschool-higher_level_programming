@@ -6,7 +6,7 @@ The number of lines module defines one function, number_of_lines().
 """
 
 def number_of_lines(filename=""):
-    """Print the contents of a text file."""
+    """Count the number of lines in a text file."""
     count = 0
     with open(filename, 'r') as f:
         for line in f:
