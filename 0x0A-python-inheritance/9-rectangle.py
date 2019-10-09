@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+This is the BaseGeometry module.
+
+The BaseGeometry module contains two functions, area() and integer_validator().
+"""
+
+
 class BaseGeometry:
     """Represents a BaseGeometry."""
     pass
@@ -13,6 +20,12 @@ class BaseGeometry:
             raise TypeError('{} must be an integer'.format(name))
         if value <= 0:
             raise ValueError('{} must be greater than 0'.format(name))
+
+"""
+This is the Rectangle module.
+
+The Rectangle module defines the Rectangle class.
+"""
 
 
 class Rectangle(BaseGeometry):
