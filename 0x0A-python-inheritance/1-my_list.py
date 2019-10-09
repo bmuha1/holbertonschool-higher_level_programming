@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+This is the "my list" module.
+
+The my list module supplies one function, print_sorted().
+"""
+
+
 class MyList(list):
     """Represents a MyList."""
 

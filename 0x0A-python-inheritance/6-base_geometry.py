@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+This is the BaseGeometry module.
+
+The BaseGeometry module contains one function, area().
+"""
+
+
 class BaseGeometry:
     """Represents a BaseGeometry."""
     pass

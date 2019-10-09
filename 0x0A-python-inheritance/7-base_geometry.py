@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+This is the BaseGeometry module.
+
+The BaseGeometry module contains two functions, area() and integer_validator().
+"""
+
+
 class BaseGeometry:
     """Represents a BaseGeometry."""
     pass
