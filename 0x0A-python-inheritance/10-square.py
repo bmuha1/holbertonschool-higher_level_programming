@@ -8,7 +8,6 @@ The BaseGeometry module contains two functions, area() and integer_validator().
 
 class BaseGeometry:
     """Represents a BaseGeometry."""
-    pass
 
     def area(self):
         """Raise an exception."""

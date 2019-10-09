@@ -8,7 +8,6 @@ The BaseGeometry module contains one function, area().
 
 class BaseGeometry:
     """Represents a BaseGeometry."""
-    pass
 
     def area(self):
         """Raise an exception."""
