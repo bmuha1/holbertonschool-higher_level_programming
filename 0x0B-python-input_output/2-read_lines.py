@@ -5,6 +5,7 @@ This is the "read lines" module.
 The read lines module defines one function, read_lines().
 """
 
+
 def read_lines(filename="", nb_lines=0):
     """Read n lines of a text file and print them."""
     with open(filename, 'r') as f:
