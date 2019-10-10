@@ -18,7 +18,7 @@ class Student:
         if not attrs or type(attrs) != list:
             return self.__dict__
         my_attrs = {}
-        for key, value in self.__dict__.items():
-            if key in attrs and type(key) == str:
-                my_attrs[key] = value
+        for key in attrs:
+            if key in self.__dict__.keys():
+                my_attrs[key] = self.__dict__[key]
         return my_attrs
