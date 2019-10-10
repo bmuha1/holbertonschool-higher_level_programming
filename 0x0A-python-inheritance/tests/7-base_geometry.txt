@@ -62,6 +62,21 @@ Now use it:
     	...
     TypeError: tuple must be an integer
 
+    >>> bg.integer_validator("bool", True)
+    Traceback (most recent call last):
+    	...
+    TypeError: bool must be an integer
+
+    >>> bg.integer_validator("set", {1, 2})
+    Traceback (most recent call last):
+    	...
+    TypeError: set must be an integer
+
+    >>> bg.integer_validator("none", None)
+    Traceback (most recent call last):
+    	...
+    TypeError: none must be an integer
+
     >>> bg.integer_validator()
     Traceback (most recent call last):
         ...
