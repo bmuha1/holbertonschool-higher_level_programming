@@ -9,6 +9,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 class TestRectangle(unittest.TestCase):
     """Test Rectangle methods."""
 
@@ -205,8 +206,8 @@ class TestRectangle(unittest.TestCase):
         """Test missing arguments."""
         with self.assertRaises(TypeError) as cm:
             Rectangle()
-        self.assertEqual("__init__() missing 2 required positional arguments:" +
-                         " 'width' and 'height'", str(cm.exception))
+        self.assertEqual("__init__() missing 2 required positional " +
+                         "arguments: 'width' and 'height'", str(cm.exception))
         with self.assertRaises(TypeError) as cm:
             Rectangle(10)
         self.assertEqual("__init__() missing 1 required positional argument:" +
