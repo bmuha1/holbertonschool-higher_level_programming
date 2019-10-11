@@ -4,6 +4,7 @@ Collection of tests for Square class.
 """
 import contextlib
 from io import StringIO
+from os import path
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -359,8 +360,9 @@ class SquareTest(unittest.TestCase):
             s1 = Square(10, 2, 8)
             s2 = Square(2)
             Rectangle.save_to_file([s1, s2])
-            with open("Square.json", "r") as file:
-                print(file.read())
+            if path.isfile("Square.json"):
+                with open("Square.json", "r") as file:
+                    print(file.read())
         output = temp_stdout.getvalue()
 
 if __name__ == '__main__':
