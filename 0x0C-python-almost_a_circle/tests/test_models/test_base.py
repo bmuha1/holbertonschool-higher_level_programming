@@ -8,7 +8,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 
-class TestBase(unittest.TestCase):
+class BaseTest(unittest.TestCase):
     """Test Base methods."""
 
     def setUp(self):

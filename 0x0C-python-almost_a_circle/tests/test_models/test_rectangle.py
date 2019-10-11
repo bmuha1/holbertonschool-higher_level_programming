@@ -10,7 +10,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 
-class TestRectangle(unittest.TestCase):
+class RectangleTest(unittest.TestCase):
     """Test Rectangle methods."""
 
     def setUp(self):
