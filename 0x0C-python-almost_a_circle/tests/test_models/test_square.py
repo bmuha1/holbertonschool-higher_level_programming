@@ -182,6 +182,13 @@ class SquareTest(unittest.TestCase):
         self.assertEqual("__init__() missing 1 required positional argument:" +
                          " 'size'", str(cm.exception))
 
+    def test_extra_parameter(self):
+        """Test with extra parameter."""
+        with self.assertRaises(TypeError) as cm:
+            Square(1, 2, 3, 4, 5)
+        self.assertEqual('__init__() takes from 2 to 5 positional arguments ' +
+                         'but 6 were given', str(cm.exception))
+
     def test_none(self):
         """Test none arguments."""
         with self.assertRaises(TypeError) as cm:
@@ -292,6 +299,26 @@ class SquareTest(unittest.TestCase):
         output = temp_stdout.getvalue()
         self.assertEqual(output, '[Square] (89) 3/4 - 2\n')
 
+    def test_update_extra_parameter(self):
+        """Test update with extra parameters."""
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            s1 = Square(10, 10, 10)
+            s1.update(89, 2, 3, 4, 5, 6, 7)
+            print(s1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Square] (89) 3/4 - 2\n')
+
+    def test_update_blank(self):
+        """Test update with no parameters."""
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            s1 = Square(10, 10, 10)
+            s1.update()
+            print(s1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Square] (1) 10/10 - 10\n')
+
     def test_update_kwargs(self):
         """Test update with kwargs."""
         temp_stdout = StringIO()
@@ -328,6 +355,16 @@ class SquareTest(unittest.TestCase):
             print(s1)
         output = temp_stdout.getvalue()
         self.assertEqual(output, '[Square] (89) 1/3 - 2\n')
+
+    def test_update_kwargs_extra(self):
+        """Test update with extra kwargs."""
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            s1 = Square(10, 10, 10)
+            s1.update(x=1, size=2, y=3, brent=5)
+            print(s1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Square] (1) 1/3 - 2\n')
 
     def test_to_dictionary(self):
         """Test to_dictionary method."""
