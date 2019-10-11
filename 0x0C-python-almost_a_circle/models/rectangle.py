@@ -26,7 +26,8 @@ class Rectangle(Base):
         """Validate value."""
         if type(value) != int:
             raise TypeError('{} must be an integer'.format(name))
-        if value <= 0 and (name == 'width' or name == 'height'):
+        if value <= 0 and (name == 'width' or name == 'height' or
+                           name == 'size'):
             raise ValueError('{} must be > 0'.format(name))
         if value < 0 and (name == 'x' or name == 'y'):
             raise ValueError('{} must be >= 0'.format(name))
