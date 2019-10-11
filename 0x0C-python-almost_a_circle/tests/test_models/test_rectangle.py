@@ -218,6 +218,18 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual("__init__() missing 1 required positional argument:" +
                          " 'height'", str(cm.exception))
 
+    def test_extra_parameter(self):
+        """Test with extra parameter."""
+        with self.assertRaises(TypeError) as cm:
+            Rectangle(1, 2, 3, 4, 5, 6)
+        self.assertEqual('__init__() takes from 3 to 6 positional arguments ' +
+                         'but 7 were given', str(cm.exception))
+
+    def test_unknown_parameter(self):
+        """Test with unknown parameter."""
+        with self.assertRaises(NameError):
+            r1 = Rectangle(a)
+
     def test_none(self):
         """Test none arguments."""
         with self.assertRaises(TypeError) as cm:
@@ -339,6 +351,26 @@ class RectangleTest(unittest.TestCase):
         output = temp_stdout.getvalue()
         self.assertEqual(output, '[Rectangle] (89) 4/5 - 2/3\n')
 
+    def test_update_extra_parameter(self):
+        """Test update with extra parameters."""
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            r1 = Rectangle(10, 10, 10, 10)
+            r1.update(89, 2, 3, 4, 5, 6, 7)
+            print(r1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Rectangle] (89) 4/5 - 2/3\n')
+
+    def test_update_blank(self):
+        """Test update with no parameters."""
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            r1 = Rectangle(10, 10, 10, 10)
+            r1.update()
+            print(r1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Rectangle] (1) 10/10 - 10/10\n')
+
     def test_update_kwargs(self):
         """Test update with kwargs."""
         temp_stdout = StringIO()
@@ -375,6 +407,16 @@ class RectangleTest(unittest.TestCase):
             print(r1)
         output = temp_stdout.getvalue()
         self.assertEqual(output, '[Rectangle] (89) 1/3 - 4/2\n')
+
+    def test_update_kwargs_extra(self):
+        """Test update with extra kwargs."""
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            r1 = Rectangle(10, 10, 10, 10)
+            r1.update(x=1, height=2, y=3, width=4, brent=5)
+            print(r1)
+        output = temp_stdout.getvalue()
+        self.assertEqual(output, '[Rectangle] (1) 1/3 - 4/2\n')
 
     def test_to_dictionary(self):
         """Test to_dictionary method."""

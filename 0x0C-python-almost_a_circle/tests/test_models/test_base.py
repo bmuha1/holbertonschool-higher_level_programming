@@ -26,11 +26,6 @@ class BaseTest(unittest.TestCase):
         b1 = Base()
         self.assertTrue(type(b1) == Base)
 
-    def test_unknown(self):
-        """Test name error."""
-        with self.assertRaises(NameError):
-            Base(a)
-
     def test_id(self):
         """Test id."""
         b1 = Base()
@@ -43,6 +38,11 @@ class BaseTest(unittest.TestCase):
         self.assertEqual(b3.id, 3)
         self.assertEqual(b4.id, 12)
         self.assertEqual(b5.id, -1)
+
+    def test_unknown(self):
+        """Test name error."""
+        with self.assertRaises(NameError):
+            Base(a)
 
     def test_to_json(self):
         """Test to_json_string method."""
@@ -59,6 +59,7 @@ class BaseTest(unittest.TestCase):
         self.assertEqual(len(json_dictionary),
                          len(str([{"x": 2, "width": 10, "id": 1, "height": 7,
                                    "y": 8}])))
+        self.assertTrue(type(json_dictionary), dict)
         self.assertTrue(type(json_dictionary) is str)
 
     def test_to_json_square(self):
@@ -68,7 +69,7 @@ class BaseTest(unittest.TestCase):
         json_dictionary = Base.to_json_string([dictionary])
         self.assertEqual(len(json_dictionary),
                          len(str([{"x": 2, "size": 10, "id": 1, "y": 8}])))
-        self.assertTrue(type(json_dictionary) is str)
+        self.assertTrue(type(json_dictionary), dict)
 
     def test_to_json_empty(self):
         """Test to_json_string method with empty and None."""
