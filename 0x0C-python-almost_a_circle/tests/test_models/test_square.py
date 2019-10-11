@@ -153,16 +153,13 @@ class SquareTest(unittest.TestCase):
     def test_negative(self):
         """Test negative input."""
         with self.assertRaises(ValueError) as cm:
-            s = Square(10)
-            s.size = -10
+            s = Square(-10)
         self.assertEqual('width must be > 0', str(cm.exception))
         with self.assertRaises(ValueError) as cm:
-            s = Square(10, 1, 1)
-            s.x = -10
+            s = Square(10, -1, 1)
         self.assertEqual('x must be >= 0', str(cm.exception))
         with self.assertRaises(ValueError) as cm:
-            s = Square(10, 1, 1)
-            s.y = -10
+            s = Square(10, 1, -1)
         self.assertEqual('y must be >= 0', str(cm.exception))
 
     def test_zero(self):
