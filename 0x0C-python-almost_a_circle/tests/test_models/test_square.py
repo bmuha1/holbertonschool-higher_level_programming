@@ -22,6 +22,11 @@ class SquareTest(unittest.TestCase):
         """Tidy up after test methods."""
         pass
 
+    def test_type(self):
+        """Test type."""
+        s1 = Square(5)
+        self.assertTrue(type(s1) == Square)
+
     def test_valid_id(self):
         """Test valid id."""
         s1 = Square(5)

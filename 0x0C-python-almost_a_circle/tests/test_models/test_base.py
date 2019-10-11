@@ -2,6 +2,8 @@
 """
 Collection of tests for Base class.
 """
+import contextlib
+from io import StringIO
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -18,6 +20,16 @@ class BaseTest(unittest.TestCase):
     def tearDown(self):
         """Tidy up after test methods."""
         pass
+
+    def test_type(self):
+        """Test type."""
+        b1 = Base()
+        self.assertTrue(type(b1) == Base)
+
+    def test_unknown(self):
+        """Test name error."""
+        with self.assertRaises(NameError):
+            Base(a)
 
     def test_id(self):
         """Test id."""
@@ -38,6 +50,25 @@ class BaseTest(unittest.TestCase):
         dictionary = r1.to_dictionary()
         json_dictionary = Base.to_json_string([dictionary])
         self.assertEqual(str(type(json_dictionary)), "<class 'str'>")
+
+    def test_to_json_rectangle(self):
+        """Test to_json_string length for rectangle."""
+        r1 = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        json_dictionary = Base.to_json_string([dictionary])
+        self.assertEqual(len(json_dictionary),
+                         len(str([{"x": 2, "width": 10, "id": 1, "height": 7,
+                               "y": 8}])))
+        self.assertTrue(type(json_dictionary) is str)
+
+    def test_to_json_square(self):
+        """Test to_json_string length for square."""
+        s1 = Square(10, 2, 8)
+        dictionary = s1.to_dictionary()
+        json_dictionary = Base.to_json_string([dictionary])
+        self.assertEqual(len(json_dictionary),
+                         len(str([{"x": 2, "size": 10, "id": 1, "y": 8}])))
+        self.assertTrue(type(json_dictionary) is str)
 
     def test_to_json_empty(self):
         """Test to_json_string method with empty and None."""

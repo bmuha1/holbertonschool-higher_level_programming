@@ -21,6 +21,11 @@ class RectangleTest(unittest.TestCase):
         """Tidy up after test methods."""
         pass
 
+    def test_type(self):
+        """Test type."""
+        r1 = Rectangle(10, 2)
+        self.assertTrue(type(r1) == Rectangle)
+
     def test_valid_id(self):
         """Test valid id."""
         r1 = Rectangle(10, 2)
