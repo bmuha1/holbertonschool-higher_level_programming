@@ -1,2 +1,2 @@
--- Display the number of records with id = 89 in the table first_table
+-- List all records of the table second_table ordered by score
 SELECT score, name FROM second_table ORDER BY score DESC;
