@@ -12,7 +12,7 @@ if __name__ == "__main__":
                          passwd=argv[2], db=argv[3], charset="utf8")
     cur = db.cursor()
     cur.execute("SELECT GROUP_CONCAT(cities.name SEPARATOR ', ') FROM cities" +
-                " JOIN states on cities.state_id = states.id AND BINARY " +
+                " JOIN states on cities.state_id = states.id WHERE " +
                 "states.name = %s", (argv[4], ))
     query_rows = cur.fetchall()
     print(query_rows[0][0])
