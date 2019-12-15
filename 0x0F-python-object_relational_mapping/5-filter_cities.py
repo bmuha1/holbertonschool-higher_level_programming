@@ -15,6 +15,7 @@ if __name__ == "__main__":
                 " JOIN states on cities.state_id = states.id WHERE " +
                 "states.name = %s", (argv[4], ))
     query_rows = cur.fetchall()
-    print(query_rows[0][0])
+    if query_rows[0][0]:
+        print(query_rows[0][0])
     cur.close()
     db.close()
