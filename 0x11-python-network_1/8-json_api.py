@@ -16,7 +16,7 @@ if __name__ == '__main__':
     data = r.json()
     if r.headers.get('content-type') != 'application/json':
         print('Not a valid JSON')
-    elif len(data) == 0:
-        print('No result')
-    else:
+    elif data:
         print('[{}] {}'.format(data.get('id'), data.get('name')))
+    else:
+        print('No result')
