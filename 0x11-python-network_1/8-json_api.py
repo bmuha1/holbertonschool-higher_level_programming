@@ -19,4 +19,4 @@ if __name__ == '__main__':
     elif len(data) == 0:
         print('No result')
     else:
-        print('[{}] {}'.format(data['id'], data['name']))
+        print('[{}] {}'.format(data.get('id'), data.get('name')))
