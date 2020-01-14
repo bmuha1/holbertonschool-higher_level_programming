@@ -12,14 +12,16 @@ if __name__ == '__main__':
     print('Number of results: {}'.format(data.get('count')))
     for person in data.get('results'):
         print(person.get('name'))
-        for film in person.get('films'):
-            f = requests.get(film)
-            print('\t{}'.format(f.json().get('title')))
+        if person.get('films'):
+            for film in person.get('films'):
+                f = requests.get(film)
+                print('\t{}'.format(f.json().get('title')))
     while data.get('next'):
         r = requests.get(data.get('next'))
         data = r.json()
         for person in data.get('results'):
             print(person.get('name'))
-            for film in person.get('films'):
-                f = requests.get(film)
-                print('\t{}'.format(f.json().get('title')))
+            if person.get('films'):
+                for film in person.get('films'):
+                    f = requests.get(film)
+                    print('\t{}'.format(f.json().get('title')))
