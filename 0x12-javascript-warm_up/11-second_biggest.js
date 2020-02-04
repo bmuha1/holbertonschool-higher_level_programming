@@ -15,6 +15,8 @@ if (process.argv.length < 4) {
     if (process.argv[i] > largest) {
       second = largest;
       largest = process.argv[i];
+    } else if (process.argv[i] > second) {
+      second = process.argv[i];
     }
   }
   console.log(second);
