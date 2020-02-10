@@ -1,5 +1,8 @@
 #!/usr/bin/node
-const Square = require('./5-square');
+const oldSquare = require('./5-square');
+
+class Square extends oldSquare {
+}
 
 Square.prototype.charPrint = function (c) {
   if (!c) {
