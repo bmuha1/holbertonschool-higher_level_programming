@@ -5,9 +5,8 @@ const url = process.argv[2];
 request(url, function (error, response, body) {
   if (error) throw error;
   let count = 0;
-  for (let i = 0; i < JSON.parse(body).count; i++) {
-    if (JSON.parse(body).results[i].characters.includes(
-      'https://swapi.co/api/people/18/')) {
+  for (const film of JSON.parse(body).results) {
+    if (film.characters.includes('https://swapi.co/api/people/18/')) {
       count++;
     }
   }
